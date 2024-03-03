@@ -11,11 +11,10 @@ import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 export default function Carrousel() {
   const [cardDataList, setCardDataList] = useState([]);
-  const apiUrl = process.env.API_URL;
   useEffect(() => {
     const fetchFromNotion = async () => {
       try {
-        const res = await fetch(`${apiUrl}/api/projects`);
+        const res = await fetch(`api/projects`);
         if (res.ok) {
           const data = await res.json();
           setCardDataList(data);
@@ -28,7 +27,7 @@ export default function Carrousel() {
     };
 
     fetchFromNotion();
-  }, [apiUrl]);
+  }, []);
   return (
     <div className="max-w-[90%] mx-auto">
       <Swiper

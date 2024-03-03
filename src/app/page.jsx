@@ -7,10 +7,9 @@ import Skills from "@/components/skills";
 import Projects from "@/components/projects";
 import ProfileWithImage from "@/components/ProfileWithImage";
 
-const apiUrl = process.env.API_URL;
-
 const fetchFromNotion = async () => {
-  const res = await fetch(`${apiUrl}/api`);
+  const res = await fetch(`api`);
+  console.log(res);
   const data = await res.json();
   return data;
 };
