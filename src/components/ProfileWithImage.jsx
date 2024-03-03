@@ -10,7 +10,7 @@ export default function ProfileWithImage() {
           width={300}
           height={300}
           className="w-full h-full object-cover "
-          src="https://avatars.githubusercontent.com/u/72781778?s=400&u=213bb5672e4c9941b48b77cb71c0016312fdf66c&v=4"
+          src="/perfil.jpg"
           alt="img perfil"
         />
       </div>
