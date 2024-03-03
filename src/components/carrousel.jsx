@@ -61,11 +61,11 @@ import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 export default function Carrousel() {
   const [cardDataList, setCardDataList] = useState([]);
-
+  const apiUrl = process.env.API_URL;
   useEffect(() => {
     const fetchFromNotion = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/projects");
+        const res = await fetch(`${apiUrl}/api/projects`);
         if (res.ok) {
           const data = await res.json();
           setCardDataList(data);

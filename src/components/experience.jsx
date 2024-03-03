@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
 
+const apiUrl = process.env.API_URL;
 const fetchFromNotion = async () => {
-  const res = await fetch("http://localhost:3000/api/experience");
+  const res = await fetch(`${apiUrl}/api/experience`);
   const data = await res.json();
   return data;
 };
