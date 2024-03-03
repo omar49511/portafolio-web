@@ -5,7 +5,7 @@ import About from "@/components/about";
 import Experience from "@/components/experience";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
-import ProfileWithImage from "@/components/profileWithImage";
+import ProfileWithImage from "@/components/ProfileWithImage";
 
 const fetchFromNotion = async () => {
   const res = await fetch("http://localhost:3000/api");
