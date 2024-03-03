@@ -28,6 +28,11 @@ export default function Carrousel() {
 
     fetchFromNotion();
   }, []);
+
+  if (!cardDataList.length) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="max-w-[90%] mx-auto">
       <Swiper

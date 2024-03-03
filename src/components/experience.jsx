@@ -21,6 +21,10 @@ export default function Experience() {
     fetchData();
   }, []);
 
+  if (!rows || rows.length === 0) {
+    return <div>Loading...</div>; // Manejar el caso en el que rows aún no está definido o está vacío. Puedes mostrar un mensaje de carga o un componente de carga en su lugar.
+  }
+
   return (
     <div className="lg:flex lg:gap-10 lg:justify-between mt-12">
       <div className="w-full lg:w-auto">

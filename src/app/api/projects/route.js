@@ -16,7 +16,6 @@ export async function GET(req, res) {
     });
 
     const rows = queryResponse.results.map((result) => result.properties);
-    console.log("rows:", rows);
 
     const rowsStructured = rows.map((row) => {
       // Verificar si row.url_projects está definido antes de acceder a la propiedad url
@@ -31,7 +30,6 @@ export async function GET(req, res) {
         url_projects: url, // Asignar la URL o una cadena vacía si row.url_projects no está definido
       };
     });
-    console.log("rowsStructured:", rowsStructured);
     return NextResponse.json(rowsStructured);
   } catch (error) {
     console.error(error);

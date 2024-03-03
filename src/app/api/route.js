@@ -16,7 +16,6 @@ export async function GET(req, res) {
     });
 
     const rows = queryResponse.results.map((result) => result.properties);
-    console.log("rows:", rows);
 
     const rowsStructured = rows.map((row) => ({
       number_contact: row.number_contact.title[0].plain_text,
@@ -24,7 +23,7 @@ export async function GET(req, res) {
       text_description: row.text_description.rich_text[0].plain_text,
       curriculum: row.curriculum.files[0].file.url,
     }));
-    console.log("rowsStructured:", rowsStructured);
+
     return NextResponse.json(rowsStructured);
   } catch (error) {
     console.error(error);

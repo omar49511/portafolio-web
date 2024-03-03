@@ -37,7 +37,6 @@ export async function GET(req, res) {
       };
     });
 
-    console.log("rowsStructured:", rowsStructured);
     return NextResponse.json(rowsStructured);
   } catch (error) {
     console.error(error);

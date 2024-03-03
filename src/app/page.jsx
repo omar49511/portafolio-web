@@ -9,7 +9,6 @@ import ProfileWithImage from "@/components/ProfileWithImage";
 
 const fetchFromNotion = async () => {
   const res = await fetch(`api`);
-  console.log(res);
   const data = await res.json();
   return data;
 };
@@ -26,7 +25,6 @@ export default function Home() {
     fetchData();
   }, []);
 
-  console.log(rows[0]);
   if (!rows || rows.length === 0) {
     // Manejar el caso en el que rows aún no está definido
     return (
