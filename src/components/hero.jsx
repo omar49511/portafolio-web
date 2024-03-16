@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <>
-      <div className="w-full h-[30vh] bg-pink-300">
+      <div className="w-full h-[30vh]">
         <Image
           priority
           className="w-full h-full object-cover "
