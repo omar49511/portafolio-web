@@ -1,3 +1,9 @@
+### Capturas de pantalla del portafolio
+
+![Captura de pantalla en computadora](https://github.com/omar49511/portafolio-web/assets/72781778/2f94c360-7dff-4c05-8616-ef7cb1c1f5fe)
+
+![Captura de pantalla en teléfono](https://github.com/omar49511/portafolio-web/assets/72781778/65354643-24b5-416f-9510-3f76f29d0b2c)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
