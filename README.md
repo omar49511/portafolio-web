@@ -1,6 +1,6 @@
 ### Capturas de pantalla del portafolio
 
-![Captura de pantalla en computadora](https://github.com/omar49511/portafolio-web/assets/72781778/d7a6d92a-2147-46d7-be5e-d87ebb5ff4f8)
+![Captura de pantalla en computadora](https://github.com/omar49511/portafolio-web/assets/72781778/e10bca56-9ebc-4a2d-87cc-2b2a62cc4741)
 
 ![Captura de pantalla en teléfono](https://github.com/omar49511/portafolio-web/assets/72781778/65354643-24b5-416f-9510-3f76f29d0b2c)
 
