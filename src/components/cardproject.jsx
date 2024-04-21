@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CardProject({
   image,
@@ -9,7 +10,7 @@ export default function CardProject({
   url,
 }) {
   return (
-    <a
+    <Link
       href={url}
       className="relative group duration-500 cursor-pointer group overflow-hidden relative  h-72 w-56 rounded hover:duration-700 duration-700 "
     >
@@ -31,6 +32,6 @@ export default function CardProject({
         <span className=" font-bold text-3xl">{title}</span>
         <p className="">{description}</p>
       </div>
-    </a>
+    </Link>
   );
 }

@@ -54,15 +54,15 @@ export default function Carrousel() {
             spaceBetween: 20,
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 1,
             spaceBetween: 40,
           },
           1440: {
-            slidesPerView: 4,
+            slidesPerView: 1,
             spaceBetween: 40,
           },
         }}

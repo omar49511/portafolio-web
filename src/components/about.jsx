@@ -1,25 +1,8 @@
+import Link from "next/link";
 import React from "react";
 import { FaPhone, FaEnvelope, FaDownload } from "react-icons/fa6";
 
 export default function About({ rows }) {
-  const handleDownload = () => {
-    // URL del archivo CV
-    const cvUrl = rows[0].curriculum;
-
-    // Crea un elemento 'a' temporal para descargar el archivo
-    const downloadLink = document.createElement("a");
-    downloadLink.href = cvUrl;
-    downloadLink.download = "mi_cv.pdf"; // Nombre del archivo descargado
-    downloadLink.target = "_blank"; // Abre el enlace en una nueva pestaña
-
-    // Añade el enlace al DOM y simula un clic
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-
-    // Elimina el enlace del DOM después de la descarga
-    document.body.removeChild(downloadLink);
-  };
-
   // poner animaciones a cosas
   return (
     <section className="flex flex-wrap justify-center lg:justify-evenly gap-10 mt-12">
@@ -44,13 +27,13 @@ export default function About({ rows }) {
         <p className="">{rows[0].text_description}</p>
       </div>
       <div className="flex-shrink-0 w-full lg:w-auto">
-        <button
-          onClick={handleDownload}
+        <Link
+          href="./cv/CVOmar_Reyes_Zamudio.pdf"
           className="bg-[#5731E7] font-bold px-3 py-2 flex rounded items-center justify-center lg:justify-start hover:bg-[#5D40CE]"
         >
           <FaDownload className="mr-2" />
           Download CV
-        </button>
+        </Link>
       </div>
     </section>
   );
