@@ -23,7 +23,7 @@ export default function About({ rows }) {
           </p>
         </div>
       </div>
-      <div className="bg-[#252525] py-4 px-3 border-l-4 border-[#5731E7] flex-grow w-auto lg:w-[25%]  ">
+      <div className="bg-[#252525] py-4 px-3 border-l-4 border-[#5731E7] flex-grow w-auto lg:w-[25%]  p-[max(3vh, 1rem)]">
         <p className="">{rows[0].text_description}</p>
       </div>
       <div className="flex-shrink-0 w-full lg:w-auto">
