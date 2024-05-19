@@ -21,7 +21,6 @@ export async function GET(req, res) {
       number_contact: row.number_contact.title[0].plain_text,
       email_contact: row.email_contact.email,
       text_description: row.text_description.rich_text[0].plain_text,
-      curriculum: row.curriculum.files[0].file.url,
     }));
 
     return NextResponse.json(rowsStructured);

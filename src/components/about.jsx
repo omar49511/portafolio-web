@@ -15,7 +15,7 @@ export default function About({ rows }) {
           {/* Todo: encapsular esto en un un componente ContactInfo({ icon, info }) para evitar repetir el css */}
           <p className="flex items-center gap-2 hover:text">
             <FaPhone className="text-[#5731E7]" size={20} />
-            +54 {rows[0].number_contact}
+            {rows[0].number_contact}
           </p>
           <p className="flex items-center gap-2">
             <FaEnvelope className="text-[#5731E7]" size={20} />
