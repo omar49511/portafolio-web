@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="my-0 mx-[20px] md:mx-auto md:max-w-[60%] p-5">
+      <div className="my-0 mx-auto md:max-w-[80%] lg:max-w-[60%] p-5">
         <ProfileWithImage />
         <About rows={rows} /> {/* Pasar los datos como props */}
         <Experience />
