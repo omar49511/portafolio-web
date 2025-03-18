@@ -29,7 +29,7 @@ export default function Experience() {
     <div className="lg:flex lg:gap-10 lg:justify-between mt-12">
       <div className="w-full lg:w-auto">
         {/* sacar los titulos en componentes y hacer que cambien de color dinamicamente*/}
-        <h2 className="font-serif bg-[#5731E7] font-bold text-3xl">
+        <h2 className="text-xl font-bold mb-6 p-2 rounded font-serif bg-[#5731E7]">
           Work Experience
         </h2>
         {rows.map((fila, index) => (
