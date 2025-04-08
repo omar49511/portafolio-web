@@ -12,7 +12,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #595959ff; /* color of the tracking area */
+  background: rgb(37, 34, 34); /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
@@ -22,13 +22,10 @@ body::-webkit-scrollbar-thumb {
     #1a1a1aff,
     #180a24
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgb(56, 1, 100),
-    #5831e8ff
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgb(66, 19, 141);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 20px; /* roundness of the scroll thumb */
-  border: 3px solid #595959ff; /* creates padding around scroll thumb */
+  border: 3px solid rgb(22, 20, 20); /* creates padding around scroll thumb */
 }
 
 @layer utilities {
