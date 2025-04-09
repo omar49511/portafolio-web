@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
+import MusicPlayer from "@/components/music-player";
 
 const fetchFromNotion = async () => {
   const res = await fetch(`api/experience`);
@@ -41,20 +42,19 @@ export default function Experience() {
             <p className="text-gray-300">{fila.empresa_experience}</p>
             <p className="text-gray-300 mt-2">{fila.descripcion_experience}</p>
             {index !== rows.length - 1 && (
-              <hr className="border-violet-600 border-b-2 mt-10" />
+              <hr className="border-[#484948] border-b-1 mt-10" />
             )}
           </div>
         ))}
       </div>
       <div className="w-full lg:w-[50%] h-auto rounded-xl bg-black">
-        <Image
-          priority
-          width={300}
-          height={300}
-          className="w-full h-full object-cover rounded-xl"
-          src="/ezgif-5-177ad6c427.webp"
-          alt="img aside"
-        />
+        {/* Widget 1: Imagen de perfil */}
+
+        {/* Widget 3: Reproductor de música */}
+        <div className="rounded-md overflow-hidden bg-gray-900/50 backdrop-blur-sm p-2">
+          <MusicPlayer />
+        </div>
+
       </div>
     </div>
   );

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #27215f;
+  --color-secondary: #703f98;
+  --color-tertiary: #a75ea6;
+  --color-quaternary: #d68f8f;
+}
 body {
   color: rgb(255, 255, 255);
   background: rgb(25, 25, 25);
