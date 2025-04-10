@@ -2,6 +2,8 @@
 export interface Project {
   id: number;
   title: string;
+  imageUrl: string;
+  category: string;
   description: string;
   liveUrl: string;
   githubUrl: string;

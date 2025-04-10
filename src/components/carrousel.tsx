@@ -6,8 +6,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
-import { projects } from "@/data/proyects";
-import ProjectDocumentationModal from "./projectDocumentationModal";
+
+import ProjectDocumentationModal from "./project-documentation-modal";
 
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 

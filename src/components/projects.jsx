@@ -1,5 +1,7 @@
 import React from "react";
-import Carrousel from "./carrousel";
+// import Carrousel from "./carrousel";
+import ProjectGallery from "./project-gallery";
+import { projects } from "@/data/proyects";
 
 export default function Projects() {
   return (
@@ -8,7 +10,8 @@ export default function Projects() {
         Projects
       </h2>
       <div className="my-12">
-        <Carrousel />
+        {/* <Carrousel /> */}
+        <ProjectGallery projects={projects} />
       </div>
     </div>
   );

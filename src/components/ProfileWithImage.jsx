@@ -10,7 +10,7 @@ export default function ProfileWithImage() {
           width={300}
           height={300}
           className="w-full h-full object-cover "
-          src="/perfil.png"
+          src="/profile.jpg"
           alt="img perfil"
         />
       </div>

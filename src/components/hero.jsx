@@ -7,10 +7,10 @@ export default function Hero() {
       <div className="w-full h-[30vh]">
         <Image
           priority
-          className="w-full h-full object-cover "
-          width="300"
-          height="300"
-          src="/ezgif-5-a7b2e8e0da.webp"
+          className="w-full h-full object-cover"
+          width="1500"
+          height="500"
+          src="/banner2.jpg"
           alt="img portada"
         />
       </div>

@@ -47,11 +47,11 @@ export default function Experience() {
           </div>
         ))}
       </div>
-      <div className="w-full lg:w-[50%] h-auto rounded-xl bg-black">
+      <div className="w-full lg:w-[50%] h-98 rounded-xl flex flex-col gap-4">
         {/* Widget 1: Imagen de perfil */}
 
         {/* Widget 3: Reproductor de música */}
-        <div className="rounded-md overflow-hidden bg-gray-900/50 backdrop-blur-sm p-2">
+        <div className="rounded-md overflow-hidden backdrop-blur-sm">
           <MusicPlayer />
         </div>
 

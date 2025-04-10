@@ -154,63 +154,64 @@ export default function MusicPlayer({ themeColor }: MusicPlayerProps) {
       </div>
 
       {/* Controls container with transparent background */}
-      <div className="rounded-lg p-3 flex items-center justify-between backdrop-blur-sm">
-        <button
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-800 hover:bg-gray-100 transition-colors"
-          onClick={decreaseVolume}
-        >
-          <Volume size={16} />
-        </button>
+      <div className="p-3 rounded-lg backdrop-blur-sm bg-[#775ead]">
+        <div className="flex items-center justify-between">
+          <button
+            className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-gray-100/20 transition-colors"
+            onClick={decreaseVolume}
+          >
+            <Volume size={16} />
+          </button>
 
-        <button
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-800 hover:bg-gray-100 transition-colors"
-          onClick={togglePlay}
-        >
-          {isPlaying ? (
-            <Pause size={16} />
-          ) : (
-            <Play size={16} className="ml-0.5" />
-          )}
-        </button>
+          <button
+            className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-gray-100/20 transition-colors"
+            onClick={togglePlay}
+          >
+            {isPlaying ? (
+              <Pause size={16} />
+            ) : (
+              <Play size={16} className="ml-0.5" />
+            )}
+          </button>
 
-        <button
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-800 hover:bg-gray-100 transition-colors"
-          onClick={toggleLoop}
-          style={{
-            backgroundColor: isLooping ? `${themeColor}` : "white",
-            color: isLooping ? "white" : "black",
-          }}
-        >
-          <Repeat size={16} />
-        </button>
-
-        <button
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-800 hover:bg-gray-100 transition-colors"
-          onClick={increaseVolume}
-        >
-          {getVolumeIcon()}
-        </button>
-      </div>
-
-      {/* Progress bar */}
-      <div className="mt-2 px-1">
-        <div
-          className="w-full h-1.5 bg-white/30 rounded-full cursor-pointer"
-          onClick={handleProgressClick}
-        >
-          <div
-            className="h-full rounded-full transition-all duration-100"
+          <button
+            className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-gray-100/20 transition-colors"
+            onClick={toggleLoop}
             style={{
-              width: `${duration ? (currentTime / duration) * 100 : 0}%`,
-              backgroundColor: "white",
+              backgroundColor: isLooping ? `#4D2B89` : "transparent",
             }}
-          ></div>
+          >
+            <Repeat size={16} />
+          </button>
+
+          <button
+            className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-gray-100/20 transition-colors"
+            onClick={increaseVolume}
+          >
+            {getVolumeIcon()}
+          </button>
         </div>
 
-        {/* Time display */}
-        <div className="flex justify-between text-xs text-gray-400 mt-1">
-          <span>{formatTime(currentTime)}</span>
-          <span>{formatTime(duration)}</span>
+        {/* Progress bar */}
+        <div className="mt-2 px-1">
+          <div
+            className="w-full h-1.5 bg-white/30 rounded-full cursor-pointer"
+            onClick={handleProgressClick}
+          >
+            <div
+              className="h-full rounded-full transition-all duration-100"
+              style={{
+                width: `${duration ? (currentTime / duration) * 100 : 0}%`,
+                backgroundColor: "white",
+              }}
+            ></div>
+          </div>
+
+          {/* Time display */}
+          <div className="flex justify-between text-xs text-gray-400 mt-1">
+            <span>{formatTime(currentTime)}</span>
+            <span>{formatTime(duration)}</span>
+          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,8 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "E-commerce Platform",
+    imageUrl: "/ezgif-5-a7b2e8e0da.webp",
+    category: "E-commerce",
     description:
       "A fully responsive e-commerce platform with product filtering, cart functionality, and payment integration.",
     liveUrl: "https://example.com/ecommerce",
@@ -60,6 +62,8 @@ export const projects: Project[] = [
   {
     id: 2,
     title: "Portfolio Website",
+    imageUrl: "/ezgif-5-a7b2e8e0da.webp",
+    category: "Personal",
     description:
       "A modern portfolio website showcasing creative work with animations and interactive elements.",
     liveUrl: "https://example.com/portfolio",
@@ -114,6 +118,8 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "Task Management App",
+    imageUrl: "/ezgif-5-a7b2e8e0da.webp",
+    category: "Productivity",
     description:
       "A productivity app for managing tasks, projects, and deadlines with real-time updates.",
     liveUrl: "https://example.com/taskmanager",
@@ -168,6 +174,8 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "Social Media Dashboard",
+    imageUrl: "/ezgif-5-a7b2e8e0da.webp",
+    category: "Analytics",
     description:
       "An analytics dashboard for tracking social media performance across multiple platforms.",
     liveUrl: "https://example.com/socialdashboard",
