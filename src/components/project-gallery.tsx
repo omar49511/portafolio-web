@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Grid, List } from "lucide-react";
 import { projects } from "@/data/proyects";
@@ -38,13 +38,27 @@ export default function ProjectGallery({
   const [viewType, setViewType] = useState<"gallery" | "table">("gallery");
   const [activeProject, setActiveProject] = useState<number | null>(null);
 
+  // Cargar la preferencia de vista desde localStorage al montar el componente
+  useEffect(() => {
+    const savedViewType = localStorage.getItem("projectViewType");
+    if (savedViewType === "gallery" || savedViewType === "table") {
+      setViewType(savedViewType);
+    }
+  }, []);
+
+  // Guardar la preferencia de vista en localStorage cuando cambia
+  const handleViewTypeChange = (type: "gallery" | "table") => {
+    setViewType(type);
+    localStorage.setItem("projectViewType", type);
+  };
+
   return (
     <div className="mb-12">
       {/* Tabs de navegación estilo Notion */}
       <div className="flex items-center gap-4 mb-6">
         <div className="flex border border-gray-700 rounded-md overflow-hidden">
           <button
-            onClick={() => setViewType("gallery")}
+            onClick={() => handleViewTypeChange("gallery")}
             className={`px-3 py-1.5 flex items-center gap-2 transition-colors ${
               viewType === "gallery"
                 ? "bg-gray-800 text-white"
@@ -55,7 +69,7 @@ export default function ProjectGallery({
             Gallerivisning
           </button>
           <button
-            onClick={() => setViewType("table")}
+            onClick={() => handleViewTypeChange("table")}
             className={`px-3 py-1.5 flex items-center gap-2 transition-colors ${
               viewType === "table"
                 ? "bg-gray-800 text-white"
@@ -74,24 +88,23 @@ export default function ProjectGallery({
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-purple-400/50 rounded-lg overflow-hidden border border-gray-800 hover:border-gray-700 transition-colors cursor-pointer group"
+              className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-gray-700 transition-colors cursor-pointer group"
               onClick={() => setActiveProject(project.id)}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={
                     project.imageUrl ||
-                    `/placeholder.svg?height=300&width=400&text=${project.title.replace(
-                      /\s+/g,
-                      "+"
-                    )}`
+                    `/placeholder.svg?height=300&width=400&text=${
+                      project.title.replace(/\s+/g, "+") || "/placeholder.svg"
+                    }`
                   }
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="p-3 border-t ">
+              <div className="p-3 border-t border-gray-800">
                 <h3 className="text-sm font-medium truncate">
                   {project.title}
                 </h3>
@@ -166,11 +179,12 @@ export default function ProjectGallery({
         </div>
       )}
 
+      {/* Modal de documentación del proyecto */}
       {activeProject !== null && (
         <ProjectDocumentationModal
           project={projects.find((p) => p.id === activeProject)!}
           onClose={() => setActiveProject(null)}
-          // themeColor={colorThemes[activeTheme].color}
+          themeColor={themeColor}
         />
       )}
     </div>
