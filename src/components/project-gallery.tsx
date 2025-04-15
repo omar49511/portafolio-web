@@ -56,13 +56,13 @@ export default function ProjectGallery({
     <div className="mb-12">
       {/* Tabs de navegación estilo Notion */}
       <div className="flex items-center gap-4 mb-6">
-        <div className="flex border border-gray-700 rounded-md overflow-hidden">
+        <div className="flex border border-[#5c5c5c] rounded-md overflow-hidden">
           <button
             onClick={() => handleViewTypeChange("gallery")}
             className={`px-3 py-1.5 flex items-center gap-2 transition-colors ${
               viewType === "gallery"
-                ? "bg-gray-800 text-white"
-                : "bg-gray-900 text-gray-400 hover:bg-gray-800 hover:text-white"
+                ? "bg-[#262727] text-white"
+                : "bg-[#222020] text-gray-400 hover:bg-[#2F2F2F] hover:text-white"
             }`}
           >
             <Grid size={16} />
@@ -72,8 +72,8 @@ export default function ProjectGallery({
             onClick={() => handleViewTypeChange("table")}
             className={`px-3 py-1.5 flex items-center gap-2 transition-colors ${
               viewType === "table"
-                ? "bg-gray-800 text-white"
-                : "bg-gray-900 text-gray-400 hover:bg-gray-800 hover:text-white"
+                ? "bg-[#262727] text-white"
+                : "bg-[#222020] text-gray-400 hover:bg-[#262727] hover:text-white"
             }`}
           >
             <List size={16} />
@@ -88,7 +88,7 @@ export default function ProjectGallery({
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-gray-700 transition-colors cursor-pointer group"
+              className="bg-[#191819] rounded-lg overflow-hidden border border-[#5c5c5c] transition-colors cursor-pointer group"
               onClick={() => setActiveProject(project.id)}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -104,7 +104,7 @@ export default function ProjectGallery({
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="p-3 border-t border-gray-800">
+              <div className="p-3 border-t border-[#5c5c5c]">
                 <h3 className="text-sm font-medium truncate">
                   {project.title}
                 </h3>
@@ -114,10 +114,10 @@ export default function ProjectGallery({
         </div>
       ) : (
         /* Vista de tabla estilo Notion */
-        <div className="border border-gray-800 rounded-lg overflow-hidden">
-          <table className="w-full">
+        <div className="border border-[#5c5c5c] rounded-lg overflow-hidden overflow-x-auto">
+          <table className="w-full min-w-[600px]">
             <thead>
-              <tr className="bg-gray-800">
+              <tr className="bg-[#191819] text-gray-400">
                 <th className="text-left p-3 text-sm font-medium">Nombre</th>
                 <th className="text-left p-3 text-sm font-medium">Categoría</th>
                 <th className="text-left p-3 text-sm font-medium">
@@ -129,8 +129,8 @@ export default function ProjectGallery({
               {projects.map((project, index) => (
                 <tr
                   key={project.id}
-                  className={`border-t border-gray-800 hover:bg-gray-800/50 cursor-pointer transition-colors ${
-                    index % 2 === 0 ? "bg-gray-900" : "bg-gray-900/70"
+                  className={`border-t border-[#5c5c5c] hover:bg-[#2F2F2F] cursor-pointer transition-colors ${
+                    index % 2 === 0 ? "bg-[#262727]" : "bg-[#222020]"
                   }`}
                   onClick={() => setActiveProject(project.id)}
                 >
@@ -160,13 +160,13 @@ export default function ProjectGallery({
                       {project.technologies.slice(0, 2).map((tech, idx) => (
                         <span
                           key={idx}
-                          className="px-1.5 py-0.5 text-xs rounded bg-gray-800 text-gray-300"
+                          className="px-1.5 py-0.5 text-xs rounded bg-[#3A3A3A] text-gray-300"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 2 && (
-                        <span className="px-1.5 py-0.5 text-xs rounded bg-gray-800 text-gray-300">
+                        <span className="px-1.5 py-0.5 text-xs rounded bg-[#3A3A3A] text-gray-300">
                           +{project.technologies.length - 2}
                         </span>
                       )}

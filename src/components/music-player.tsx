@@ -178,7 +178,7 @@ export default function MusicPlayer({ themeColor }: MusicPlayerProps) {
             className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-gray-100/20 transition-colors"
             onClick={toggleLoop}
             style={{
-              backgroundColor: isLooping ? `#4D2B89` : "transparent",
+              backgroundColor: isLooping ? `#4D2B89` : "",
             }}
           >
             <Repeat size={16} />

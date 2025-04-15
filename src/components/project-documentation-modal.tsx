@@ -70,11 +70,11 @@ export default function ProjectDocumentationModal({
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-hidden">
       <div
         ref={modalRef}
-        className="bg-gray-900 rounded-lg w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden border border-gray-800 shadow-xl"
+        className="bg-[#191819] rounded-lg w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden border border-[#262727] shadow-xl"
         style={{ boxShadow: `0 0 30px ${themeColor}30` }}
       >
         {/* Modal header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-gray-800 border-b border-gray-700">
+        <div className="flex items-center justify-between px-6 py-4 bg-[#262727] border-b border-[#2F2F2F]">
           <h2 className="text-xl font-bold flex items-center gap-2">
             <span
               className="w-3 h-3 rounded-full"
@@ -84,17 +84,17 @@ export default function ProjectDocumentationModal({
           </h2>
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-700 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#2F2F2F] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Navigation tabs */}
-        <div className="flex border-b border-gray-700 overflow-x-auto hide-scrollbar">
+        <div className="flex border-b border-[#2F2F2F] overflow-x-auto no-scrollbar min-h-[48px] ">
           <button
             onClick={() => setActiveTab("overview")}
-            className={`px-4 py-3 font-medium text-sm transition-colors whitespace-nowrap ${
+            className={`px-4 py-4 font-medium text-sm transition-colors whitespace-nowrap ${
               activeTab === "overview"
                 ? "border-b-2 text-white"
                 : "text-gray-400 hover:text-white"
@@ -108,7 +108,7 @@ export default function ProjectDocumentationModal({
           </button>
           <button
             onClick={() => setActiveTab("process")}
-            className={`px-4 py-3 font-medium text-sm transition-colors whitespace-nowrap ${
+            className={`px-4 py-4 font-medium text-sm transition-colors whitespace-nowrap ${
               activeTab === "process"
                 ? "border-b-2 text-white"
                 : "text-gray-400 hover:text-white"
@@ -121,7 +121,7 @@ export default function ProjectDocumentationModal({
           </button>
           <button
             onClick={() => setActiveTab("tech")}
-            className={`px-4 py-3 font-medium text-sm transition-colors whitespace-nowrap ${
+            className={`px-4 py-4 font-medium text-sm transition-colors whitespace-nowrap ${
               activeTab === "tech"
                 ? "border-b-2 text-white"
                 : "text-gray-400 hover:text-white"
@@ -134,7 +134,7 @@ export default function ProjectDocumentationModal({
           </button>
           <button
             onClick={() => setActiveTab("challenges")}
-            className={`px-4 py-3 font-medium text-sm transition-colors whitespace-nowrap ${
+            className={`px-4 py-4 font-medium text-sm transition-colors whitespace-nowrap ${
               activeTab === "challenges"
                 ? "border-b-2 text-white"
                 : "text-gray-400 hover:text-white"
@@ -149,12 +149,12 @@ export default function ProjectDocumentationModal({
         </div>
 
         {/* Modal content */}
-        <div className="flex-1 overflow-y-auto custom-scrollbar">
+        <div className="flex-1 overflow-y-auto max-h-[600px]">
           {activeTab === "overview" && (
             <div className="p-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <div className="aspect-video relative rounded-md overflow-hidden mb-4 border-2 border-gray-800">
+                  <div className="aspect-video relative rounded-md overflow-hidden mb-4 border-2 border-[#262727]">
                     <Image
                       src="/placeholder.svg?height=300&width=500"
                       alt={project.title}
@@ -186,7 +186,7 @@ export default function ProjectDocumentationModal({
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded bg-gray-800 text-white font-medium hover:bg-gray-700 transition-colors flex-1 justify-center"
+                        className="flex items-center gap-2 px-4 py-2 rounded bg-[#262727] text-white font-medium hover:bg-[#2F2F2F] transition-colors flex-1 justify-center"
                       >
                         <Github className="w-4 h-4" />
                         Código fuente
@@ -194,7 +194,7 @@ export default function ProjectDocumentationModal({
                     )}
                   </div>
 
-                  <div className="bg-gray-800 rounded-lg p-4 mb-4">
+                  <div className="bg-[#262727] rounded-lg p-4 mb-4">
                     <h4 className="font-medium mb-2 flex items-center gap-2">
                       <Lightbulb
                         className="w-4 h-4"
@@ -232,7 +232,7 @@ export default function ProjectDocumentationModal({
                     <p className="text-gray-300 mb-4">{project.description}</p>
                   </div>
 
-                  <div className="bg-gray-800 rounded-lg p-4 mb-4">
+                  <div className="bg-[#262727] rounded-lg p-4 mb-4">
                     <h4 className="font-medium mb-3 flex items-center gap-2">
                       <CheckCircle
                         className="w-4 h-4"
@@ -284,7 +284,7 @@ export default function ProjectDocumentationModal({
                     </ul>
                   </div>
 
-                  <div className="bg-gray-800 rounded-lg p-4">
+                  <div className="bg-[#262727] rounded-lg p-4">
                     <h4 className="font-medium mb-3 flex items-center gap-2">
                       <Code className="w-4 h-4" style={{ color: themeColor }} />
                       Tecnologías utilizadas
@@ -327,7 +327,7 @@ export default function ProjectDocumentationModal({
                     </h3>
 
                     {/* Timeline visualization */}
-                    <div className="relative pl-8 border-l-2 border-gray-700 mb-4">
+                    <div className="relative pl-8 border-l-2 border-[#2F2F2F] mb-4">
                       <div
                         className="absolute left-0 top-0 w-0.5 h-full z-10"
                         style={{
@@ -343,7 +343,7 @@ export default function ProjectDocumentationModal({
                         <div key={index} className="mb-4 relative">
                           <div
                             className={`absolute left-[-9px] top-0 w-4 h-4 rounded-full z-20 ${
-                              index <= activeProcessStep ? "" : "bg-gray-700"
+                              index <= activeProcessStep ? "" : "bg-[#2F2F2F]"
                             }`}
                             style={{
                               backgroundColor:
@@ -360,7 +360,7 @@ export default function ProjectDocumentationModal({
                             className={`w-full text-left p-3 rounded-md transition-colors ${
                               activeProcessStep === index
                                 ? "bg-opacity-20"
-                                : "bg-gray-800 hover:bg-gray-700"
+                                : "bg-[#262727] hover:bg-[#2F2F2F]"
                             }`}
                             style={{
                               backgroundColor:
@@ -383,11 +383,11 @@ export default function ProjectDocumentationModal({
                     </div>
                   </div>
 
-                  <div className="bg-gray-800 rounded-lg p-4 relative">
+                  <div className="bg-[#262727] rounded-lg p-4 relative">
                     <div className="absolute top-2 right-2 flex gap-1">
                       <button
                         onClick={prevProcessStep}
-                        className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-700 hover:bg-gray-600 transition-colors"
+                        className="w-8 h-8 rounded-full flex items-center justify-center bg-[#2F2F2F] hover:bg-gray-600 transition-colors"
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
@@ -412,7 +412,7 @@ export default function ProjectDocumentationModal({
                       </h4>
                     </div>
 
-                    <div className="aspect-video relative rounded-md overflow-hidden mb-4 border-2 border-gray-700">
+                    <div className="aspect-video relative rounded-md overflow-hidden mb-4 border-2 border-[#2F2F2F]">
                       <Image
                         src={
                           project.process[activeProcessStep].image ||
@@ -425,12 +425,12 @@ export default function ProjectDocumentationModal({
                       />
                     </div>
 
-                    <div className="bg-gray-900 p-4 rounded-md">
+                    <div className="bg-[#3d3c3c] p-4 rounded-md">
                       <p className="text-gray-300">
                         {project.process[activeProcessStep].description}
                       </p>
 
-                      <div className="mt-4 pt-4 border-t border-gray-700">
+                      <div className="mt-4 pt-4 border-t border-[#2F2F2F]">
                         <h5 className="font-medium mb-2 text-sm">
                           Herramientas utilizadas en esta fase:
                         </h5>
@@ -477,7 +477,7 @@ export default function ProjectDocumentationModal({
                 {project.technologies.map((tech, index) => (
                   <div
                     key={index}
-                    className="bg-gray-800 rounded-lg p-4 border-t-2"
+                    className="bg-[#262727] rounded-lg p-4 border-t-2"
                     style={{ borderColor: themeColor }}
                   >
                     <div className="flex items-center gap-3 mb-3">
@@ -503,7 +503,7 @@ export default function ProjectDocumentationModal({
                       <span className="text-xs text-gray-400">
                         Nivel de dominio:
                       </span>
-                      <div className="flex-1 bg-gray-700 h-1.5 rounded-full overflow-hidden">
+                      <div className="flex-1 bg-[#2F2F2F] h-1.5 rounded-full overflow-hidden">
                         <div
                           className="h-full rounded-full"
                           style={{
@@ -518,16 +518,16 @@ export default function ProjectDocumentationModal({
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gray-800 rounded-lg p-4">
+                <div className="bg-[#262727] rounded-lg p-4">
                   <h4 className="font-medium mb-3">
                     Arquitectura del proyecto
                   </h4>
-                  <div className="aspect-[4/3] relative rounded-md overflow-hidden mb-4 bg-gray-900 p-4">
+                  <div className="aspect-[4/3] relative rounded-md overflow-hidden mb-4 bg-[#3d3c3c] p-4">
                     <div className="w-full h-full flex flex-col items-center justify-center">
                       {/* Simple architecture diagram */}
                       <div className="flex flex-col items-center gap-4 w-full max-w-xs">
                         <div
-                          className="w-full py-3 rounded-lg text-center font-medium"
+                          className="w-full py-4 rounded-lg text-center font-medium"
                           style={{ backgroundColor: themeColor }}
                         >
                           Frontend (UI)
@@ -537,7 +537,7 @@ export default function ProjectDocumentationModal({
                           style={{ backgroundColor: themeColor }}
                         ></div>
                         <div
-                          className="w-full py-3 rounded-lg text-center font-medium"
+                          className="w-full py-4 rounded-lg text-center font-medium"
                           style={{ backgroundColor: `${themeColor}50` }}
                         >
                           Lógica de negocio
@@ -547,7 +547,7 @@ export default function ProjectDocumentationModal({
                           style={{ backgroundColor: themeColor }}
                         ></div>
                         <div
-                          className="w-full py-3 rounded-lg text-center font-medium"
+                          className="w-full py-4 rounded-lg text-center font-medium"
                           style={{ backgroundColor: `${themeColor}30` }}
                         >
                           Backend / API
@@ -556,7 +556,7 @@ export default function ProjectDocumentationModal({
                           className="w-0.5 h-6"
                           style={{ backgroundColor: themeColor }}
                         ></div>
-                        <div className="w-full py-3 rounded-lg text-center font-medium bg-gray-700">
+                        <div className="w-full py-4 rounded-lg text-center font-medium bg-[#2F2F2F]">
                           Base de datos
                         </div>
                       </div>
@@ -570,7 +570,7 @@ export default function ProjectDocumentationModal({
                   </p>
                 </div>
 
-                <div className="bg-gray-800 rounded-lg p-4">
+                <div className="bg-[#262727] rounded-lg p-4">
                   <h4 className="font-medium mb-3">
                     Patrones y prácticas implementadas
                   </h4>
@@ -662,7 +662,7 @@ export default function ProjectDocumentationModal({
                     {project.challenges.map((challenge, index) => (
                       <div
                         key={index}
-                        className="bg-gray-800 rounded-lg p-4 border-l-4"
+                        className="bg-[#262727] rounded-lg p-4 border-l-4"
                         style={{
                           borderColor: index % 2 === 0 ? themeColor : "#ff6b6b",
                         }}
@@ -683,7 +683,7 @@ export default function ProjectDocumentationModal({
                             </h4>
                             <p className="text-gray-300">{challenge}</p>
 
-                            <div className="mt-3 p-3 rounded-md bg-gray-900">
+                            <div className="mt-3 p-3 rounded-md bg-[#3d3c3c]">
                               <h5 className="text-sm font-medium mb-1">
                                 Solución implementada:
                               </h5>
@@ -714,7 +714,7 @@ export default function ProjectDocumentationModal({
                     {project.learnings.map((learning, index) => (
                       <div
                         key={index}
-                        className="bg-gray-800 rounded-lg p-4"
+                        className="bg-[#262727] rounded-lg p-4"
                         style={{
                           background: `linear-gradient(to right, ${themeColor}20, transparent)`,
                           borderLeft: `4px solid ${themeColor}`,

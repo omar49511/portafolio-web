@@ -28,11 +28,11 @@ const ProgressBar = ({ title, percentage, icon, level }) => {
     //   </div>
     // </div>
 
-    <div className="bg-[#262626] p-4 rounded-md">
+    <div className="bg-[#262626] p-4 rounded-md border border-[#5c5c5c] shadow min-w-[fit-content]">
       <div className="flex items-center gap-2 mb-2">
         <span
           className="w-6 h-6 flex items-center justify-center"
-          // style={{ backgroundColor: colorThemes[activeTheme].color }}
+        // style={{ backgroundColor: colorThemes[activeTheme].color }}
         >
           {icon}
         </span>

@@ -46,7 +46,7 @@ export default function MatrixEffect() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Color verde para los caracteres
-      ctx.fillStyle = "#0F0";
+      ctx.fillStyle = "#F5F";
       ctx.font = `${fontSize}px monospace`;
 
       // Dibujar los caracteres
