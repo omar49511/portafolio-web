@@ -3,28 +3,13 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Grid, List } from "lucide-react";
-import { projects } from "@/data/proyects";
 import { Project } from "@/types/project";
-import ProjectDocumentationModal from "./project-documentation-modal";
+import dynamic from "next/dynamic";
 
-// type Project = {
-//   id: number;
-//   title: string;
-//   description: string;
-//   liveUrl?: string;
-//   githubUrl?: string;
-//   technologies: string[];
-//   process: {
-//     title: string;
-//     description: string;
-//     image?: string;
-//   }[];
-//   challenges: string[];
-//   learnings: string[];
-//   featured?: boolean;
-//   imageUrl: string;
-//   category: string;
-// };
+const ProjectDocumentationModal = dynamic(
+  () => import("./project-documentation-modal"),
+  { ssr: false }
+);
 
 type ProjectGalleryProps = {
   projects: Project[];
@@ -38,7 +23,6 @@ export default function ProjectGallery({
   const [viewType, setViewType] = useState<"gallery" | "table">("gallery");
   const [activeProject, setActiveProject] = useState<number | null>(null);
 
-  // Cargar la preferencia de vista desde localStorage al montar el componente
   useEffect(() => {
     const savedViewType = localStorage.getItem("projectViewType");
     if (savedViewType === "gallery" || savedViewType === "table") {
@@ -46,35 +30,40 @@ export default function ProjectGallery({
     }
   }, []);
 
-  // Guardar la preferencia de vista en localStorage cuando cambia
   const handleViewTypeChange = (type: "gallery" | "table") => {
     setViewType(type);
     localStorage.setItem("projectViewType", type);
   };
 
   return (
-    <div className="mb-12">
-      {/* Tabs de navegación estilo Notion */}
-      <div className="flex items-center gap-4 mb-6">
+    <section className="mb-12" aria-label="Galería de proyectos">
+      {/* Vista tipo tabs */}
+      <div className="flex items-center gap-4 mb-6" role="tablist" aria-label="Vista de proyectos">
         <div className="flex border border-[#5c5c5c] rounded-md overflow-hidden">
           <button
+            type="button"
+            role="tab"
+            aria-selected={viewType === "gallery"}
+            aria-label="Vista en galería"
             onClick={() => handleViewTypeChange("gallery")}
-            className={`px-3 py-1.5 flex items-center gap-2 transition-colors ${
-              viewType === "gallery"
-                ? "bg-[#262727] text-white"
-                : "bg-[#222020] text-gray-400 hover:bg-[#2F2F2F] hover:text-white"
-            }`}
+            className={`px-3 py-1.5 flex items-center gap-2  ${viewType === "gallery"
+              ? "bg-[#262727] text-white"
+              : "bg-[#222020] text-gray-400 hover:bg-[#2F2F2F] hover:text-white"
+              }`}
           >
             <Grid size={16} />
-            Gallerivisning
+            Galería
           </button>
           <button
+            type="button"
+            role="tab"
+            aria-selected={viewType === "table"}
+            aria-label="Vista en tabla"
             onClick={() => handleViewTypeChange("table")}
-            className={`px-3 py-1.5 flex items-center gap-2 transition-colors ${
-              viewType === "table"
-                ? "bg-[#262727] text-white"
-                : "bg-[#222020] text-gray-400 hover:bg-[#262727] hover:text-white"
-            }`}
+            className={`px-3 py-1.5 flex items-center gap-2  ${viewType === "table"
+              ? "bg-[#262727] text-white"
+              : "bg-[#222020] text-gray-400 hover:bg-[#262727] hover:text-white"
+              }`}
           >
             <List size={16} />
             Tabla
@@ -83,56 +72,60 @@ export default function ProjectGallery({
       </div>
 
       {viewType === "gallery" ? (
-        /* Vista de galería estilo Notion */
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4"
+          role="list"
+          aria-label="Proyectos en galería"
+        >
           {projects.map((project) => (
-            <div
+            <button
               key={project.id}
-              className="bg-[#191819] rounded-lg overflow-hidden border border-[#5c5c5c] transition-colors cursor-pointer group"
+              role="listitem"
+              aria-label={`Ver detalles del proyecto ${project.title}`}
               onClick={() => setActiveProject(project.id)}
+              className="bg-[#191819] rounded-lg overflow-hidden border border-[#5c5c5c] transition-colors cursor-pointer group text-left"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={
                     project.imageUrl ||
-                    `/placeholder.svg?height=300&width=400&text=${
-                      project.title.replace(/\s+/g, "+") || "/placeholder.svg"
-                    }`
+                    `/placeholder.svg?height=300&width=400&text=${project.title.replace(/\s+/g, "+")}`
                   }
-                  alt={project.title}
+                  alt={`Imagen del proyecto ${project.title}`}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority={false}
                 />
               </div>
               <div className="p-3 border-t border-[#5c5c5c]">
-                <h3 className="text-sm font-medium truncate">
-                  {project.title}
-                </h3>
+                <h3 className="text-sm font-medium truncate">{project.title}</h3>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       ) : (
-        /* Vista de tabla estilo Notion */
         <div className="border border-[#5c5c5c] rounded-lg overflow-hidden overflow-x-auto">
-          <table className="w-full min-w-[600px]">
+          <table
+            className="w-full min-w-[600px]"
+            aria-label="Tabla de proyectos"
+          >
             <thead>
               <tr className="bg-[#191819] text-gray-400">
-                <th className="text-left p-3 text-sm font-medium">Nombre</th>
-                <th className="text-left p-3 text-sm font-medium">Categoría</th>
-                <th className="text-left p-3 text-sm font-medium">
-                  Tecnologías
-                </th>
+                <th scope="col" className="text-left p-3 text-sm font-medium">Nombre</th>
+                <th scope="col" className="text-left p-3 text-sm font-medium">Categoría</th>
+                <th scope="col" className="text-left p-3 text-sm font-medium">Tecnologías</th>
               </tr>
             </thead>
             <tbody>
               {projects.map((project, index) => (
                 <tr
                   key={project.id}
-                  className={`border-t border-[#5c5c5c] hover:bg-[#2F2F2F] cursor-pointer transition-colors ${
-                    index % 2 === 0 ? "bg-[#262727]" : "bg-[#222020]"
-                  }`}
                   onClick={() => setActiveProject(project.id)}
+                  className={`border-t border-[#5c5c5c] hover:bg-[#2F2F2F] cursor-pointer transition-colors ${index % 2 === 0 ? "bg-[#262727]" : "bg-[#222020]"
+                    }`}
+                  role="button"
+                  aria-label={`Ver detalles del proyecto ${project.title}`}
                 >
                   <td className="p-3 text-sm">
                     <div className="flex items-center gap-3">
@@ -140,13 +133,13 @@ export default function ProjectGallery({
                         <Image
                           src={
                             project.imageUrl ||
-                            `/placeholder.svg?height=32&width=32&text=${project.title.charAt(
-                              0
-                            )}`
+                            `/placeholder.svg?height=32&width=32&text=${project.title.charAt(0)}`
                           }
-                          alt={project.title}
+                          alt={`Miniatura de ${project.title}`}
                           fill
                           className="object-cover"
+                          sizes="32px"
+                          priority={false}
                         />
                       </div>
                       {project.title}
@@ -179,14 +172,13 @@ export default function ProjectGallery({
         </div>
       )}
 
-      {/* Modal de documentación del proyecto */}
       {activeProject !== null && (
         <ProjectDocumentationModal
           project={projects.find((p) => p.id === activeProject)!}
           onClose={() => setActiveProject(null)}
-          themeColor={themeColor}
+          themeColor={themeColor || "#000000"} // Default to black if undefined
         />
       )}
-    </div>
+    </section>
   );
 }
