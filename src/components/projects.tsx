@@ -10,7 +10,6 @@ export default function Projects() {
         Projects
       </h2>
       <div className="my-12">
-        {/* <Carrousel /> */}
         <ProjectGallery projects={projects} />
       </div>
     </section>

@@ -27,10 +27,10 @@ export default function Experience() {
 
   return (
     <section
-      className="lg:flex lg:gap-10 lg:justify-between mt-12"
+      className="md:flex gap-10 mt-12"
       aria-labelledby="experience-heading"
     >
-      <div className="w-full lg:w-auto">
+      <div className="w-full  md:w-[70%] ">
         <h2
           id="experience-heading"
           className="text-xl font-bold mb-6 p-2 rounded font-serif bg-[#5731E7] text-white"
@@ -56,7 +56,7 @@ export default function Experience() {
         ))}
       </div>
 
-      <aside className="w-full lg:w-[50%] h-98 rounded-xl flex flex-col gap-4">
+      <aside className="w-full md:w-[30%] h-98 rounded-xl flex flex-col gap-4">
         <div className="rounded-md overflow-hidden backdrop-blur-sm">
           <MusicPlayer themeColor="#5731E7" />
         </div>

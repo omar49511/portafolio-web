@@ -6,7 +6,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "E-commerce Platform",
-    imageUrl: "/ezgif-5-a7b2e8e0da.webp",
+    imageUrl: "/gato.webp",
     category: "E-commerce",
     description:
       "A fully responsive e-commerce platform with product filtering, cart functionality, and payment integration.",
@@ -18,31 +18,31 @@ export const projects: Project[] = [
         title: "Planning & Research",
         description:
           "Started with market research and competitor analysis to identify key features and user needs. Created wireframes and user flows to plan the application structure.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "UI/UX Design",
         description:
           "Designed the user interface with a focus on usability and conversion optimization. Created a consistent design system for components and layouts.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Frontend Development",
         description:
           "Built the frontend using React and Next.js with a component-based architecture. Implemented responsive layouts with Tailwind CSS for all device sizes.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Backend Integration",
         description:
           "Integrated with MongoDB for data storage and Stripe for payment processing. Implemented secure authentication and authorization systems.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Testing & Deployment",
         description:
           "Conducted thorough testing for functionality, performance, and security. Deployed the application with CI/CD pipelines for automated updates.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
     ],
     challenges: [
@@ -62,7 +62,7 @@ export const projects: Project[] = [
   {
     id: 2,
     title: "Portfolio Website",
-    imageUrl: "/ezgif-5-a7b2e8e0da.webp",
+    imageUrl: "/gato.webp",
     category: "Personal",
     description:
       "A modern portfolio website showcasing creative work with animations and interactive elements.",
@@ -80,25 +80,25 @@ export const projects: Project[] = [
         title: "Concept & Design",
         description:
           "Created a unique concept focusing on visual storytelling and user engagement. Designed mockups with attention to typography, spacing, and visual hierarchy.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Animation Planning",
         description:
           "Planned animations and transitions to enhance the user experience without being distracting. Created storyboards for key interactive elements.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Development",
         description:
           "Built the site with React and implemented animations using GSAP and Framer Motion. Created 3D elements with Three.js for visual impact.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Optimization",
         description:
           "Optimized performance by lazy loading assets, code splitting, and implementing efficient rendering techniques for animations.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
     ],
     challenges: [
@@ -118,7 +118,7 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "Task Management App",
-    imageUrl: "/ezgif-5-a7b2e8e0da.webp",
+    imageUrl: "/gato.webp",
     category: "Productivity",
     description:
       "A productivity app for managing tasks, projects, and deadlines with real-time updates.",
@@ -130,31 +130,31 @@ export const projects: Project[] = [
         title: "User Research",
         description:
           "Conducted user interviews and analyzed existing productivity tools to identify pain points and opportunities for improvement.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Feature Planning",
         description:
           "Defined core features and prioritized them based on user needs. Created user stories and acceptance criteria for development.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "UI Design",
         description:
           "Designed a clean, focused interface that minimizes distractions and emphasizes task completion. Created a consistent visual language.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Development",
         description:
           "Built the application with React and Redux for state management. Integrated Firebase for real-time data synchronization and authentication.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "PWA Implementation",
         description:
           "Implemented Progressive Web App features for offline functionality, push notifications, and installation on devices.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
     ],
     challenges: [
@@ -174,7 +174,7 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "Social Media Dashboard",
-    imageUrl: "/ezgif-5-a7b2e8e0da.webp",
+    imageUrl: "/gato.webp",
     category: "Analytics",
     description:
       "An analytics dashboard for tracking social media performance across multiple platforms.",
@@ -186,31 +186,31 @@ export const projects: Project[] = [
         title: "Requirements Gathering",
         description:
           "Identified key metrics and KPIs that social media managers need to track. Researched API capabilities of major social platforms.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Data Architecture",
         description:
           "Designed data models and API endpoints for collecting and aggregating social media metrics from multiple sources.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Visualization Design",
         description:
           "Created wireframes and prototypes for data visualizations that communicate insights effectively and allow for exploration.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Frontend Development",
         description:
           "Built the dashboard interface with Vue.js and implemented interactive charts and graphs with D3.js.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
       {
         title: "Backend Development",
         description:
           "Developed a Node.js/Express backend with scheduled jobs for data collection and APIs for frontend consumption.",
-        image: "/ezgif-5-a7b2e8e0da.webp",
+        image: "/gato.webp",
       },
     ],
     challenges: [

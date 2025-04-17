@@ -1,4 +1,4 @@
-// // ProjectDocumentationModal.tsx
+// ProjectDocumentationModal.tsx
 import ModalWrapper from "./ModalWrapper";
 import ModalHeader from "./ModalHeader";
 import NavigationTabs from "./NavigationTabs";
@@ -23,7 +23,13 @@ export default function ProjectDocumentationModal({
     <ModalWrapper onClose={onClose}>
       <ModalHeader onClose={onClose} title={`Detrás del proyecto: ${project.title}`} themeColor={themeColor} />
       <NavigationTabs activeTab={activeTab} setActiveTab={setActiveTab} themeColor={themeColor} />
-      <TabContent activeTab={activeTab} project={project} themeColor={themeColor} />
+      <div className="flex-1 overflow-y-auto px-6 py-4">
+        <TabContent
+          activeTab={activeTab}
+          project={project}
+          themeColor={themeColor}
+        />
+      </div>
     </ModalWrapper>
   );
 }

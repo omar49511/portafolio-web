@@ -88,8 +88,7 @@ export default function ProjectGallery({
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={
-                    project.imageUrl ||
-                    `/placeholder.svg?height=300&width=400&text=${project.title.replace(/\s+/g, "+")}`
+                    project.imageUrl
                   }
                   alt={`Imagen del proyecto ${project.title}`}
                   fill

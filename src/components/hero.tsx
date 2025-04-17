@@ -4,17 +4,22 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <header
-      className="relative w-full aspect-[3/1]"
+      className="relative w-full h-[30vh] overflow-hidden object-cover"
       aria-label="Imagen de portada principal del sitio"
     >
       <Image
-        src="/portada.png" // ✅ usa la ruta de la imagen
-        alt="Portada del sitio mostrando el estilo visual principal"
-        fill // ✅ usa "fill" en lugar de width/height para imágenes que llenan el contenedor
-        priority// ✅ carga la imagen cuando está a 200px del viewport
-        quality={75} // ✅ reduce ligeramente la calidad para mejorar tiempos sin perder apariencia
-        className="w-full h-full object-cover object-center"
-        sizes="100%" // ✅ le dice al navegador que use el 100% del viewport
+        src="/portada.webp"
+        alt="Portada optimizada"
+        width={750}
+        height={500}
+        quality={75}
+        sizes="full"
+        className="object-cover w-full h-full inset-0"
+        priority
+        loading="eager"
+        placeholder="blur"
+        blurDataURL="/portada.webp"
+        style={{ filter: "blur(0.5px)" }} // Apply a slight blur effect
       />
     </header>
   );

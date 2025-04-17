@@ -1,6 +1,7 @@
-// components/NavBar.jsx
 "use client";
 import { FaFileAlt, FaTerminal, FaSun } from "react-icons/fa";
+import SecretCodeCollector from "./SecretCodeCollector";
+import { useState, useEffect } from "react";
 
 interface NavBarProps {
     onTerminalOpen: () => void;
@@ -8,32 +9,99 @@ interface NavBarProps {
     activeColor: string;
 }
 
-export default function NavBar({ onTerminalOpen, onThemeToggle, activeColor }: NavBarProps) {
+export default function NavBar({
+    onTerminalOpen,
+    onThemeToggle,
+    activeColor,
+}: NavBarProps) {
+    const [showSecretCollector, setShowSecretCollector] = useState(false)
+
+    // Resetear el código secreto al cargar la página (opcional, para pruebas)
+    useEffect(() => {
+        // Descomentar para resetear el código al recargar
+        // localStorage.removeItem("secretCodeChars")
+
+        // Verificar si hay letras guardadas
+        const savedChars = localStorage.getItem("secretCodeChars")
+        if (savedChars) {
+            try {
+                const parsed = JSON.parse(savedChars)
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    setShowSecretCollector(true)
+                    console.log("Loaded secret chars on init:", parsed) // Debugging
+                }
+            } catch (e) {
+                console.error("Error parsing saved secret code")
+            }
+        }
+    }, [])
+    const baseBtnClass =
+        "w-10 h-10 flex items-center justify-center rounded-full relative transition-colors";
+
+    const IconButton = ({
+        icon: Icon,
+        label,
+        onClick,
+        bg = "#252525",
+        hover = "#2F2F2F",
+        color = "white",
+    }: {
+        icon: React.ElementType;
+        label: string;
+        onClick?: () => void;
+        bg?: string;
+        hover?: string;
+        color?: string;
+    }) => (
+        <div className="relative group">
+            <button
+                onClick={onClick}
+                aria-label={label}
+                className={`${baseBtnClass}`}
+                style={{ backgroundColor: bg }}
+                onMouseOver={(e) =>
+                    (e.currentTarget.style.backgroundColor = hover)
+                }
+                onMouseOut={(e) =>
+                    (e.currentTarget.style.backgroundColor = bg)
+                }
+            >
+                <Icon className="w-5 h-5" style={{ color }} />
+            </button>
+            <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                {label}
+            </span>
+        </div>
+    );
+
+
+
+    // Define colorThemes and activeTheme
+    const colorThemes = {
+        light: { color: "#FFD700" },
+        dark: { color: "#1E1E1E" },
+    };
+    const activeTheme = "light"; // Set the active theme (e.g., "light" or "dark")
+
     return (
         <nav className="fixed top-0 left-0 right-0 z-50">
             <div className="container mx-auto px-6 py-3 flex justify-center">
                 <div className="flex items-center gap-4 p-2 bg-[#191919] rounded-full">
-                    <button
-                        aria-label="Ver documentos"
-                        className="w-10 h-10 flex items-center justify-center rounded-full bg-[#252525] hover:bg-[#2F2F2F] transition-colors"
-                    >
-                        <FaFileAlt className="w-5 h-5" />
-                    </button>
-                    <button
+                    <IconButton icon={FaFileAlt} label="Ver documentos" />
+                    <IconButton
+                        icon={FaTerminal}
+                        label="Abrir terminal"
                         onClick={onTerminalOpen}
-                        aria-label="Abrir terminal"
-                        className="w-10 h-10 flex items-center justify-center rounded-full bg-[#252525] hover:bg-[#2F2F2F] transition-colors"
-                    >
-                        <FaTerminal className="w-5 h-5" />
-                    </button>
-                    <button
+                    />
+                    <IconButton
+                        icon={FaSun}
+                        label="Cambiar tema"
                         onClick={onThemeToggle}
-                        aria-label="Cambiar tema"
-                        className="w-10 h-10 flex items-center justify-center rounded-full transition-colors"
-                        style={{ backgroundColor: activeColor }}
-                    >
-                        <FaSun className="w-5 h-5 text-white" />
-                    </button>
+                        bg={activeColor}
+                        hover={activeColor}
+                    />
+                    {/* Secret Code Collector */}
+                    {showSecretCollector && <SecretCodeCollector themeColor={colorThemes[activeTheme].color} />}
                 </div>
             </div>
         </nav>

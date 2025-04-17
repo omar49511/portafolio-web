@@ -150,15 +150,17 @@ export default function MusicPlayer({ themeColor }: MusicPlayerProps) {
   };
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="max-w-[18.75rem] h-full flex flex-col">
       <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-3">
         <Image
-          src="/lofi.jpg"
+          src="/lofi.webp"
           alt="Portada del álbum Lofi Study Beats"
-          fill
-          sizes="(max-width: 768px) 100vw, 700px"
+          width={700}       // Tamaño máximo necesario
+          height={394}      // Relación 16:9 (700/1.777)
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 700px"
           className="object-cover"
-          priority={false}
+          quality={80}
+          priority
         />
 
         <div className="absolute bottom-2 left-2 text-white text-xs font-medium drop-shadow-md">
@@ -173,7 +175,7 @@ export default function MusicPlayer({ themeColor }: MusicPlayerProps) {
       />
 
       <div className="p-3 rounded-lg backdrop-blur-sm bg-[#5730E7]">
-        <div className="flex items-center justify-center sm:justify-between sm:space-x-2 md:space-x-4">
+        <div className="flex items-center justify-around">
           <button
             onClick={decreaseVolume}
             aria-label="Disminuir volumen"
@@ -212,8 +214,6 @@ export default function MusicPlayer({ themeColor }: MusicPlayerProps) {
             {getVolumeIcon()}
           </button>
         </div>
-
-
 
         <div className="mt-2 px-1">
           <label htmlFor="progress" className="sr-only">
