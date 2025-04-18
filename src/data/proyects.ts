@@ -1,71 +1,69 @@
-import type { Project } from "@/types/project";
+import { Project } from "@/types/project"; // Adjust the path as needed
 
-// Sample data for projects
-// This data can be replaced with actual data from a database or API
 export const projects: Project[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Plataforma de Comercio Electrónico",
     imageUrl: "/gato.webp",
-    category: "E-commerce",
+    category: "Comercio Electrónico",
     description:
-      "A fully responsive e-commerce platform with product filtering, cart functionality, and payment integration.",
+      "Una plataforma de comercio electrónico completamente responsiva con filtrado de productos, funcionalidad de carrito y integración de pagos.",
     liveUrl: "https://example.com/ecommerce",
     githubUrl: "https://github.com/user/ecommerce",
     technologies: ["React", "Next.js", "Tailwind CSS", "Stripe", "MongoDB"],
     process: [
       {
-        title: "Planning & Research",
+        title: "Planificación e Investigación",
         description:
-          "Started with market research and competitor analysis to identify key features and user needs. Created wireframes and user flows to plan the application structure.",
+          "Comenzamos con investigación de mercado y análisis de competidores para identificar características clave y necesidades de los usuarios. Creamos wireframes y flujos de usuario para planificar la estructura de la aplicación.",
         image: "/gato.webp",
       },
       {
-        title: "UI/UX Design",
+        title: "Diseño UI/UX",
         description:
-          "Designed the user interface with a focus on usability and conversion optimization. Created a consistent design system for components and layouts.",
+          "Diseñamos la interfaz de usuario con un enfoque en la usabilidad y la optimización de conversiones. Creamos un sistema de diseño consistente para componentes y diseños.",
         image: "/gato.webp",
       },
       {
-        title: "Frontend Development",
+        title: "Desarrollo Frontend",
         description:
-          "Built the frontend using React and Next.js with a component-based architecture. Implemented responsive layouts with Tailwind CSS for all device sizes.",
+          "Construimos el frontend usando React y Next.js con una arquitectura basada en componentes. Implementamos diseños responsivos con Tailwind CSS para todos los tamaños de dispositivos.",
         image: "/gato.webp",
       },
       {
-        title: "Backend Integration",
+        title: "Integración Backend",
         description:
-          "Integrated with MongoDB for data storage and Stripe for payment processing. Implemented secure authentication and authorization systems.",
+          "Integración con MongoDB para almacenamiento de datos y Stripe para procesamiento de pagos. Implementamos sistemas seguros de autenticación y autorización.",
         image: "/gato.webp",
       },
       {
-        title: "Testing & Deployment",
+        title: "Pruebas y Despliegue",
         description:
-          "Conducted thorough testing for functionality, performance, and security. Deployed the application with CI/CD pipelines for automated updates.",
+          "Realizamos pruebas exhaustivas de funcionalidad, rendimiento y seguridad. Desplegamos la aplicación con pipelines de CI/CD para actualizaciones automatizadas.",
         image: "/gato.webp",
       },
     ],
     challenges: [
-      "Optimizing performance for large product catalogs with many filtering options",
-      "Implementing a secure and seamless checkout process with multiple payment options",
-      "Ensuring consistent user experience across different devices and browsers",
+      "Optimizar el rendimiento para catálogos de productos grandes con muchas opciones de filtrado",
+      "Implementar un proceso de pago seguro y fluido con múltiples opciones de pago",
+      "Garantizar una experiencia de usuario consistente en diferentes dispositivos y navegadores",
     ],
     learnings: [
-      "Importance of thorough planning and architecture before implementation",
-      "Value of user testing and feedback throughout the development process",
-      "Techniques for optimizing performance in data-heavy applications",
-      "Best practices for secure payment processing and data handling",
+      "Importancia de una planificación y arquitectura exhaustiva antes de la implementación",
+      "Valor de las pruebas de usuario y retroalimentación durante el proceso de desarrollo",
+      "Técnicas para optimizar el rendimiento en aplicaciones con gran cantidad de datos",
+      "Mejores prácticas para el procesamiento seguro de pagos y manejo de datos",
     ],
     featured: true,
     imageHeight: 300,
   },
   {
     id: 2,
-    title: "Portfolio Website",
+    title: "Sitio Web de Portafolio",
     imageUrl: "/gato.webp",
     category: "Personal",
     description:
-      "A modern portfolio website showcasing creative work with animations and interactive elements.",
+      "Un sitio web de portafolio moderno que muestra trabajos creativos con animaciones y elementos interactivos.",
     liveUrl: "https://example.com/portfolio",
     githubUrl: "https://github.com/user/portfolio",
     technologies: [
@@ -77,96 +75,96 @@ export const projects: Project[] = [
     ],
     process: [
       {
-        title: "Concept & Design",
+        title: "Concepto y Diseño",
         description:
-          "Created a unique concept focusing on visual storytelling and user engagement. Designed mockups with attention to typography, spacing, and visual hierarchy.",
+          "Creamos un concepto único enfocado en la narrativa visual y la interacción del usuario. Diseñamos maquetas con atención a la tipografía, espaciado y jerarquía visual.",
         image: "/gato.webp",
       },
       {
-        title: "Animation Planning",
+        title: "Planificación de Animaciones",
         description:
-          "Planned animations and transitions to enhance the user experience without being distracting. Created storyboards for key interactive elements.",
+          "Planificamos animaciones y transiciones para mejorar la experiencia del usuario sin ser distractivas. Creamos storyboards para elementos interactivos clave.",
         image: "/gato.webp",
       },
       {
-        title: "Development",
+        title: "Desarrollo",
         description:
-          "Built the site with React and implemented animations using GSAP and Framer Motion. Created 3D elements with Three.js for visual impact.",
+          "Construimos el sitio con React e implementamos animaciones usando GSAP y Framer Motion. Creamos elementos 3D con Three.js para un impacto visual.",
         image: "/gato.webp",
       },
       {
-        title: "Optimization",
+        title: "Optimización",
         description:
-          "Optimized performance by lazy loading assets, code splitting, and implementing efficient rendering techniques for animations.",
+          "Optimizamos el rendimiento cargando recursos de forma diferida, dividiendo el código e implementando técnicas de renderizado eficientes para animaciones.",
         image: "/gato.webp",
       },
     ],
     challenges: [
-      "Balancing visual appeal with performance and load times",
-      "Creating smooth animations that work across different devices and browsers",
-      "Implementing 3D elements that enhance rather than distract from the content",
+      "Equilibrar el atractivo visual con el rendimiento y los tiempos de carga",
+      "Crear animaciones fluidas que funcionen en diferentes dispositivos y navegadores",
+      "Implementar elementos 3D que mejoren en lugar de distraer del contenido",
     ],
     learnings: [
-      "Techniques for creating performant animations and transitions",
-      "Approaches to progressive enhancement for different device capabilities",
-      "Methods for optimizing asset loading and rendering",
-      "Importance of accessibility even in highly visual interfaces",
+      "Técnicas para crear animaciones y transiciones de alto rendimiento",
+      "Enfoques para la mejora progresiva en diferentes capacidades de dispositivos",
+      "Métodos para optimizar la carga y renderizado de recursos",
+      "Importancia de la accesibilidad incluso en interfaces altamente visuales",
     ],
     featured: false,
     imageHeight: 300,
   },
   {
     id: 3,
-    title: "Task Management App",
+    title: "Aplicación de Gestión de Tareas",
     imageUrl: "/gato.webp",
-    category: "Productivity",
+    category: "Productividad",
     description:
-      "A productivity app for managing tasks, projects, and deadlines with real-time updates.",
+      "Una aplicación de productividad para gestionar tareas, proyectos y plazos con actualizaciones en tiempo real.",
     liveUrl: "https://example.com/taskmanager",
     githubUrl: "https://github.com/user/taskmanager",
     technologies: ["React", "Firebase", "Redux", "Material UI", "PWA"],
     process: [
       {
-        title: "User Research",
+        title: "Investigación de Usuarios",
         description:
-          "Conducted user interviews and analyzed existing productivity tools to identify pain points and opportunities for improvement.",
+          "Realizamos entrevistas con usuarios y analizamos herramientas de productividad existentes para identificar puntos de dolor y oportunidades de mejora.",
         image: "/gato.webp",
       },
       {
-        title: "Feature Planning",
+        title: "Planificación de Funcionalidades",
         description:
-          "Defined core features and prioritized them based on user needs. Created user stories and acceptance criteria for development.",
+          "Definimos las funcionalidades principales y las priorizamos según las necesidades de los usuarios. Creamos historias de usuario y criterios de aceptación para el desarrollo.",
         image: "/gato.webp",
       },
       {
-        title: "UI Design",
+        title: "Diseño de Interfaz",
         description:
-          "Designed a clean, focused interface that minimizes distractions and emphasizes task completion. Created a consistent visual language.",
+          "Diseñamos una interfaz limpia y enfocada que minimiza distracciones y enfatiza la finalización de tareas. Creamos un lenguaje visual consistente.",
         image: "/gato.webp",
       },
       {
-        title: "Development",
+        title: "Desarrollo",
         description:
-          "Built the application with React and Redux for state management. Integrated Firebase for real-time data synchronization and authentication.",
+          "Construimos la aplicación con React e implementamos la gestión de estado con Redux. Integramos Firebase para sincronización de datos en tiempo real y autenticación.",
         image: "/gato.webp",
       },
       {
-        title: "PWA Implementation",
+        title: "Implementación de PWA",
         description:
-          "Implemented Progressive Web App features for offline functionality, push notifications, and installation on devices.",
+          "Implementamos características de Progressive Web App para funcionalidad offline, notificaciones push e instalación en dispositivos.",
         image: "/gato.webp",
       },
     ],
     challenges: [
-      "Designing an intuitive interface that scales from simple to complex task management",
-      "Implementing real-time synchronization with conflict resolution",
-      "Creating a responsive experience that works well on both mobile and desktop",
+      "Diseñar una interfaz intuitiva que escale desde la gestión simple hasta la compleja de tareas",
+      "Implementar sincronización en tiempo real con resolución de conflictos",
+      "Crear una experiencia responsiva que funcione bien tanto en dispositivos móviles como en escritorio",
     ],
     learnings: [
-      "Effective patterns for real-time data synchronization",
-      "Techniques for building offline-capable applications",
-      "Approaches to state management in complex applications",
-      "Methods for creating intuitive user interfaces for productivity tools",
+      "Patrones efectivos para la sincronización de datos en tiempo real",
+      "Técnicas para construir aplicaciones con capacidad offline",
+      "Enfoques para la gestión de estado en aplicaciones complejas",
+      "Métodos para crear interfaces de usuario intuitivas para herramientas de productividad",
     ],
     featured: true,
     imageHeight: 300,
