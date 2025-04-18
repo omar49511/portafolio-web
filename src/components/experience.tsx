@@ -3,6 +3,14 @@
 
 import React from "react";
 import MusicPlayer from "@/components/music-player";
+import HiddenLetter from "@/components/HiddenLetter"; // Ensure this path is correct
+
+// Define colorThemes and activeTheme
+const colorThemes = {
+  light: { color: "#FFFFFF" },
+  dark: { color: "#000000" },
+};
+const activeTheme = "light";
 
 
 export default function Experience() {
@@ -60,6 +68,12 @@ export default function Experience() {
         <div className="rounded-md overflow-hidden backdrop-blur-sm">
           <MusicPlayer themeColor="#5731E7" />
         </div>
+        <HiddenLetter
+          letter="#"
+          themeColor={colorThemes[activeTheme].color}
+          className="text-yellow-300 font-bold"
+          style={{ display: "inline-block", maxWidth: "fit-content", }}
+        />
       </aside>
     </section>
   );

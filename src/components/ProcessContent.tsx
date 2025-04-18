@@ -40,16 +40,7 @@ export default function ProcessContent({
                         </h3>
 
                         {/* Timeline visualization */}
-                        <div className="relative pl-8 border-l-2 border-[#2F2F2F] mb-4">
-                            <div
-                                className="absolute left-0 top-0 w-0.5 h-full z-10"
-                                style={{
-                                    backgroundColor: themeColor,
-                                    height: `${((activeProcessStep + 1) * 100) /
-                                        project.process.length
-                                        }%`,
-                                }}
-                            ></div>
+                        <div className="relative pl-8 mb-4">
 
                             {project.process.map((step, index) => (
                                 <div key={index} className="mb-4 relative">

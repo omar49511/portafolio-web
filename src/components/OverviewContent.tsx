@@ -3,12 +3,12 @@ import Image from 'next/image'
 import { FaExternalLinkAlt as ExternalLink, FaGithub as Github, FaLightbulb as Lightbulb, FaCheckCircle as CheckCircle, FaCode as Code } from 'react-icons/fa' // Example: Importing from react-icons
 import { Project } from '@/types/project'
 
-export default function OverviewContent({ project, themeColor = '#4CAF50' }: { project: Project; themeColor?: string }) {
+export default function OverviewContent({ project, themeColor = '#df3' }: { project: Project; themeColor?: string }) {
     return (
         <div className="p-6">
             <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                    <div className="aspect-video relative rounded-md overflow-hidden mb-4 border-2 border-gray-800">
+                    <div className="aspect-video relative rounded-md overflow-hidden mb-4 border-2 border-[#262726]">
                         <Image
                             src={project.imageUrl}
                             alt={project.title}
@@ -38,7 +38,7 @@ export default function OverviewContent({ project, themeColor = '#4CAF50' }: { p
                                 href={project.githubUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-4 py-2 rounded bg-gray-800 text-white font-medium hover:bg-gray-700 transition-colors flex-1 justify-center"
+                                className="flex items-center gap-2 px-4 py-2 rounded bg-[#262726] text-white font-medium hover:bg-gray-700 transition-colors flex-1 justify-center"
                             >
                                 <Github className="w-4 h-4" />
                                 Código fuente
@@ -46,7 +46,7 @@ export default function OverviewContent({ project, themeColor = '#4CAF50' }: { p
                         )}
                     </div>
 
-                    <div className="bg-gray-800 rounded-lg p-4 mb-4">
+                    <div className="bg-[#262726] rounded-lg p-4 mb-4">
                         <h4 className="font-medium mb-2 flex items-center gap-2">
                             <Lightbulb className="w-4 h-4" style={{ color: themeColor }} />
                             Inspiración del proyecto
@@ -76,7 +76,7 @@ export default function OverviewContent({ project, themeColor = '#4CAF50' }: { p
                         <p className="text-gray-300 mb-4">{project.description}</p>
                     </div>
 
-                    <div className="bg-gray-800 rounded-lg p-4 mb-4">
+                    <div className="bg-[#262726] rounded-lg p-4 mb-4">
                         <h4 className="font-medium mb-3 flex items-center gap-2">
                             <CheckCircle className="w-4 h-4" style={{ color: themeColor }} />
                             Características principales
@@ -121,7 +121,7 @@ export default function OverviewContent({ project, themeColor = '#4CAF50' }: { p
                         </ul>
                     </div>
 
-                    <div className="bg-gray-800 rounded-lg p-4">
+                    <div className="bg-[#262726] rounded-lg p-4">
                         <h4 className="font-medium mb-3 flex items-center gap-2">
                             <Code className="w-4 h-4" style={{ color: themeColor }} />
                             Tecnologías utilizadas

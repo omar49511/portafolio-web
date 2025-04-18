@@ -27,22 +27,42 @@ export default function HiddenLetter({ letter, className = "", style = {}, theme
                     if (Array.isArray(parsed) && parsed.includes(letter)) {
                         setFound(true)
                         setIsVisible(false)
+                    } else {
+                        // Si no hay datos en localStorage, asegurarse de que la letra sea visible
+                        setFound(false)
+                        setIsVisible(true)
                     }
                 } catch (e) {
                     console.error("Error parsing saved secret code")
                 }
+            } else {
+                // Si no hay datos en localStorage, asegurarse de que la letra sea visible
+                setFound(false)
+                setIsVisible(true)
             }
         }
 
         checkIfFound()
 
+
+        // Escuchar el evento de reseteo del código
+        const handleReset = () => {
+            console.log(`Letter ${letter} reset`) // Debugging
+            setFound(false)
+            setIsVisible(true)
+            setShowAnimation(false)
+            setIsHovering(false)
+        }
+
         // También verificar cuando cambia el localStorage
         window.addEventListener("storage", checkIfFound)
         window.addEventListener("secretLetterFound", checkIfFound)
+        window.addEventListener("secretCodeReset", handleReset)
 
         return () => {
             window.removeEventListener("storage", checkIfFound)
             window.removeEventListener("secretLetterFound", checkIfFound)
+            window.removeEventListener("secretCodeReset", handleReset)
         }
     }, [letter])
 

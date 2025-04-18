@@ -5,9 +5,10 @@ interface ProgressBarProps {
   title: string;
   icon: React.ReactNode;
   level: string;
+  letter?: React.ReactNode; // Optional prop for the letter
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ title, icon, level }) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ title, icon, level, letter }) => {
   return (
     <div className="bg-[#262626] p-4 rounded-md border border-[#5c5c5c] shadow min-w-[fit-content]">
       <div className="flex items-center gap-2 mb-2">
@@ -20,7 +21,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ title, icon, level }) => {
         <span>{title}</span>
       </div>
       <div className="text-xs text-gray-400 mb-2">{level}</div>
-
+      {letter}
     </div>
   );
 };

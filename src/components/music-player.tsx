@@ -160,7 +160,6 @@ export default function MusicPlayer({ themeColor }: MusicPlayerProps) {
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 700px"
           className="object-cover"
           quality={80}
-          priority
         />
 
         <div className="absolute bottom-2 left-2 text-white text-xs font-medium drop-shadow-md">
@@ -171,7 +170,6 @@ export default function MusicPlayer({ themeColor }: MusicPlayerProps) {
       <audio
         ref={audioRef}
         src="/audio/imaseNIGHT DANCERMV.mp3"
-        preload="none"
       />
 
       <div className="p-3 rounded-lg backdrop-blur-sm bg-[#5730E7]">

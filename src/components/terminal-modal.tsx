@@ -7,6 +7,7 @@ import { useTerminalEffects } from "@/hooks/useTerminalEffects";
 import { TerminalHeader } from "./TerminalHeader";
 import { TerminalContent } from "./TerminalContent";
 import { TerminalInput } from "./TerminalInput";
+import HiddenLetter from "@/components/HiddenLetter";
 
 type TerminalProps = {
   onClose: () => void;
@@ -24,6 +25,12 @@ export default function TerminalModal({ onClose, onEasterEgg }: TerminalProps) {
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-[#191819] rounded-lg w-full max-w-2xl h-[500px] flex flex-col overflow-hidden border border-[#5730E6]">
         <TerminalHeader onClose={onClose} />
+        <HiddenLetter
+          letter="5"
+          themeColor="#FFFFFF" // Replace with a default color or define colorThemes and activeTheme
+          className="text-yellow-300 font-bold"
+          style={{ display: "inline-block", maxWidth: "fit-content", }}
+        />
         <TerminalContent
           messages={messages}
           showMatrix={showMatrix}

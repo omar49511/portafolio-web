@@ -8,6 +8,14 @@ import {
   SiReact,
   SiCss3,
 } from "react-icons/si";
+import HiddenLetter from "@/components/HiddenLetter"; // Adjust the path as needed
+
+const colorThemes = {
+  light: { color: "#FFFFFF" },
+  dark: { color: "#000000" },
+};
+
+const activeTheme = "light";
 
 const skillsData = [
   { title: "React Js", icon: <SiReact />, level: "height" },
@@ -15,7 +23,14 @@ const skillsData = [
   { title: "CSS", icon: <SiCss3 />, level: "height" },
   { title: "PHP", icon: <SiPhp />, level: "medium" },
   { title: "C#", icon: <SiCsharp />, level: "medium" },
-  { title: "JavaScript", icon: <SiJavascript />, level: "height" },
+  {
+    title: "JavaScript", icon: <SiJavascript />, level: "height", letter: <HiddenLetter
+      letter="h"
+      themeColor={colorThemes[activeTheme].color}
+      className="text-yellow-300 font-bold"
+      style={{ display: "inline-block", maxWidth: "fit-content", }}
+    />
+  },
 ];
 
 export default function Skills() {
@@ -33,6 +48,7 @@ export default function Skills() {
             title={skill.title}
             icon={skill.icon}
             level={skill.level}
+            letter={skill.letter}
           />
         ))}
       </div>

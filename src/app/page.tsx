@@ -44,6 +44,7 @@ export default function Home() {
         activeColor={colorThemes[activeTheme].color}
       />
       <MainContent />
+      <FloatingSecretButton />
       {terminalOpen && (
         <TerminalModal
           onClose={() => setTerminalOpen(false)}
@@ -56,5 +57,6 @@ export default function Home() {
 
 // Componente layout ligero
 import { ReactNode } from "react";
+import FloatingSecretButton from "@/components/FloatingSecreteButton";
 
 const LightweightLayout = ({ children }: { children: ReactNode }) => <>{children}</>;

@@ -35,6 +35,22 @@ export default function NavBar({
             }
         }
     }, [])
+
+    // Verificar si debemos mostrar el colector de código secreto
+    useEffect(() => {
+        // Escuchar el evento personalizado para cuando se encuentra una letra
+        const handleSecretFound = () => {
+            console.log("Secret letter found, showing collector") // Debugging
+            setShowSecretCollector(true)
+        }
+
+        window.addEventListener("secretLetterFound", handleSecretFound)
+
+        return () => {
+            window.removeEventListener("secretLetterFound", handleSecretFound)
+        }
+    }, [])
+
     const baseBtnClass =
         "w-10 h-10 flex items-center justify-center rounded-full relative transition-colors";
 
@@ -100,8 +116,6 @@ export default function NavBar({
                         bg={activeColor}
                         hover={activeColor}
                     />
-                    {/* Secret Code Collector */}
-                    {showSecretCollector && <SecretCodeCollector themeColor={colorThemes[activeTheme].color} />}
                 </div>
             </div>
         </nav>

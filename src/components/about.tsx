@@ -1,6 +1,15 @@
 import React from "react";
 import { FaPhone, FaEnvelope, FaDownload } from "react-icons/fa6";
 import Title from "./ui/Title";
+import HiddenLetter from "./HiddenLetter";
+
+// Example colorThemes and activeTheme definition
+const colorThemes = {
+  light: { color: "#FFD700" },
+  dark: { color: "#000000" },
+};
+
+const activeTheme = "light";
 
 export default function About() {
   // poner animaciones a cosas
@@ -20,7 +29,11 @@ export default function About() {
           <p className="flex items-center gap-2">
             <FaEnvelope className="text-[#5731E7]" size={20} />
 
-            correo@hdf.com
+            correo@exa<HiddenLetter
+              letter="3"
+              themeColor={colorThemes[activeTheme].color}
+              className="text-yellow-300 font-bold"
+            />mple.com
           </p>
         </div>
       </div>

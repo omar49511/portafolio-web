@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Eye, RefreshCw } from "lucide-react"
-import Tooltip from "./tooltip"
 
 type SecretCodeCollectorProps = {
     themeColor: string
@@ -14,7 +13,6 @@ const SECRET_CODE = "d3#hg5"
 export default function SecretCodeCollector({ themeColor }: SecretCodeCollectorProps) {
     // Mapa para rastrear qué caracteres se han encontrado
     const [foundChars, setFoundChars] = useState<Record<string, boolean>>({})
-    const [showCode, setShowCode] = useState(false)
     const [showAnimation, setShowAnimation] = useState<number | null>(null)
 
     // Cargar caracteres encontrados desde localStorage
@@ -100,13 +98,14 @@ export default function SecretCodeCollector({ themeColor }: SecretCodeCollectorP
         }
     }, [])
 
-    const toggleShowCode = () => {
-        setShowCode(!showCode)
-    }
+
 
     const resetCode = () => {
         setFoundChars({})
         localStorage.removeItem("secretCodeChars")
+        // Disparar un evento personalizado para notificar que se ha reseteado el código
+        const resetEvent = new CustomEvent("secretCodeReset")
+        window.dispatchEvent(resetEvent)
     }
 
     // Verificar si el código está completo (todas las letras de SECRET_CODE están en foundChars)
@@ -120,59 +119,49 @@ export default function SecretCodeCollector({ themeColor }: SecretCodeCollectorP
     }
 
     return (
-        <div className="flex items-center gap-2 bg-gray-900 rounded-full px-3 py-1.5">
+        <div className="flex items-center gap-2 px-3 py-1.5">
             <div className="flex items-center">
                 <div className="text-xs text-gray-400 mr-2">
                     {countFoundChars()} de {SECRET_CODE.length}
                 </div>
                 <div className="flex">
-                    {showCode ? (
-                        <div className="text-sm font-mono px-2 py-1 bg-gray-800 rounded">
-                            {SECRET_CODE.split("")
-                                .map((char) => (foundChars[char] ? char : "•"))
-                                .join("")}
-                        </div>
-                    ) : (
-                        <div className="flex">
-                            {/* Mostrar las letras en el orden específico del código */}
-                            {SECRET_CODE.split("").map((char, index) => (
-                                <div
-                                    key={index}
-                                    className={`w-5 h-5 flex items-center justify-center rounded-md mx-0.5 transition-all duration-300 ${showAnimation === index ? "scale-125" : ""
-                                        }`}
-                                    style={{
-                                        backgroundColor: foundChars[char] ? `${themeColor}30` : "rgba(255,255,255,0.1)",
-                                        border: foundChars[char] ? `1px solid ${themeColor}` : "1px solid rgba(255,255,255,0.2)",
-                                        transform: showAnimation === index ? "scale(1.2)" : "scale(1)",
-                                    }}
-                                >
-                                    {foundChars[char] ? (
-                                        <span className="text-xs">{char}</span>
-                                    ) : (
-                                        <span className="text-xs text-gray-600">•</span>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                    <div className="flex">
+                        {/* Mostrar las letras en el orden específico del código */}
+                        {SECRET_CODE.split("").map((char, index) => (
+                            <div
+                                key={index}
+                                className={`w-5 h-5 flex items-center justify-center rounded-md mx-0.5 transition-all duration-300 ${showAnimation === index ? "scale-125" : ""
+                                    }`}
+                                style={{
+                                    backgroundColor: foundChars[char] ? `${themeColor}30` : "rgba(255,255,255,0.1)",
+                                    border: foundChars[char] ? `1px solid ${themeColor}` : "1px solid rgba(255,255,255,0.2)",
+                                    transform: showAnimation === index ? "scale(1.2)" : "scale(1)",
+                                }}
+                            >
+                                {foundChars[char] ? (
+                                    <span className="text-xs">{char}</span>
+                                ) : (
+                                    <span className="text-xs text-gray-600">•</span>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
-            <Tooltip text={showCode ? "Ocultar código" : "Mostrar código"} position="bottom">
-                <button
-                    onClick={toggleShowCode}
-                    className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-gray-800 transition-colors"
-                >
-                    <Eye className="w-3 h-3" />
-                </button>
-            </Tooltip>
-            <Tooltip text="Resetear código" position="bottom">
+
+            <div className="relative group">
+                {/* Botón para reiniciar el código */}
                 <button
                     onClick={resetCode}
                     className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-gray-800 transition-colors"
                 >
                     <RefreshCw className="w-3 h-3" />
                 </button>
-            </Tooltip>
+                <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                    Resetear código
+                </span>
+            </div>
 
             {/* Mostrar indicador cuando el código está completo */}
             {isCodeComplete() && (

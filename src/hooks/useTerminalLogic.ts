@@ -1,18 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Message, ContactData } from "@/types/terminalTypes";
 
-// type Message = {
-//   type: "input" | "output" | "error" | "success";
-//   content: string;
-// };
-
-// type ContactData = {
-//   name: string;
-//   email: string;
-//   title: string;
-//   description: string;
-// };
-
 export const useTerminalLogic = (onEasterEgg?: () => void) => {
   const SECRET_CODE = "d3#hg5";
   const [input, setInput] = useState("");
@@ -20,7 +8,7 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
     {
       type: "output",
       content:
-        "Welcome to the interactive terminal! Type 'help' to see available commands.",
+        "¡Bienvenido al terminal interactivo! Escribe 'help' para ver los comandos disponibles.",
     },
     { type: "output", content: "> " },
   ]);
@@ -47,8 +35,8 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
       setContactData((prev) => ({ ...prev, name: input }));
       setMessages((prev) => [
         ...prev.slice(0, -1),
-        { type: "output", content: `Name: ${input}` },
-        { type: "output", content: "Enter your email:" },
+        { type: "output", content: `Nombre: ${input}` },
+        { type: "output", content: "Introduce tu correo electrónico:" },
         { type: "output", content: "> " },
       ]);
       setContactStep("email");
@@ -62,8 +50,12 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
         playSound("/sounds/error.mp3", 0.3);
         setMessages((prev) => [
           ...prev.slice(0, -1),
-          { type: "error", content: "Please enter a valid email address." },
-          { type: "output", content: "Enter your email:" },
+          {
+            type: "error",
+            content:
+              "Por favor, introduce una dirección de correo electrónico válida.",
+          },
+          { type: "output", content: "Introduce tu correo electrónico:" },
           { type: "output", content: "> " },
         ]);
         setInput("");
@@ -73,8 +65,8 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
       setContactData((prev) => ({ ...prev, email: input }));
       setMessages((prev) => [
         ...prev.slice(0, -1),
-        { type: "output", content: `Email: ${input}` },
-        { type: "output", content: "Enter message title:" },
+        { type: "output", content: `Correo electrónico: ${input}` },
+        { type: "output", content: "Introduce el título del mensaje:" },
         { type: "output", content: "> " },
       ]);
       setContactStep("title");
@@ -86,8 +78,8 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
       setContactData((prev) => ({ ...prev, title: input }));
       setMessages((prev) => [
         ...prev.slice(0, -1),
-        { type: "output", content: `Title: ${input}` },
-        { type: "output", content: "Enter description:" },
+        { type: "output", content: `Título: ${input}` },
+        { type: "output", content: "Introduce la descripción:" },
         { type: "output", content: "> " },
       ]);
       setContactStep("description");
@@ -99,21 +91,21 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
       setContactData((prev) => ({ ...prev, description: input }));
       setMessages((prev) => [
         ...prev.slice(0, -1),
-        { type: "output", content: `Description: ${input}` },
-        { type: "output", content: "Sending message..." },
+        { type: "output", content: `Descripción: ${input}` },
+        { type: "output", content: "Enviando mensaje..." },
       ]);
 
       setTimeout(() => {
         playSound("/sounds/success.mp3", 0.3);
         setMessages((prev) => [
           ...prev,
-          { type: "success", content: "✅ Message sent successfully!" },
+          { type: "success", content: "✅ ¡Mensaje enviado con éxito!" },
           {
             type: "output",
-            content: `From: ${contactData.name} (${contactData.email})`,
+            content: `De: ${contactData.name} (${contactData.email})`,
           },
-          { type: "output", content: `Subject: ${contactData.title}` },
-          { type: "output", content: `Message: ${input}` },
+          { type: "output", content: `Asunto: ${contactData.title}` },
+          { type: "output", content: `Mensaje: ${input}` },
           { type: "output", content: "> " },
         ]);
         setContactStep(null);
@@ -132,51 +124,14 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
       case "help":
         setMessages((prev) => [
           ...prev.slice(0, -1),
-          { type: "output", content: "Available commands:" },
-          { type: "output", content: "- help: Show available commands" },
-          { type: "output", content: "- skills: List technologies and skills" },
-          { type: "output", content: "- projects: Show projects with links" },
-          { type: "output", content: "- contact: Send a message" },
-          { type: "output", content: "- clear: Clear the terminal" },
-          { type: "output", content: "- easter-egg: ??????" },
-          { type: "output", content: "- [secret code]: ??????" },
-          { type: "output", content: "> " },
-        ]);
-        break;
-
-      case "skills":
-        setMessages((prev) => [
-          ...prev.slice(0, -1),
-          { type: "output", content: "Skills:" },
-          { type: "output", content: "- React (70%)" },
-          { type: "output", content: "- Next.js (70%)" },
-          { type: "output", content: "- CSS (70%)" },
-          { type: "output", content: "- PHP (70%)" },
-          { type: "output", content: "- C# (70%)" },
-          { type: "output", content: "> " },
-        ]);
-        break;
-
-      case "projects":
-        setMessages((prev) => [
-          ...prev.slice(0, -1),
-          { type: "output", content: "Projects:" },
+          { type: "output", content: "Comandos disponibles:" },
           {
             type: "output",
-            content: "1. E-commerce Platform - https://example.com/project1",
+            content: "- help: Muestra los comandos disponibles",
           },
-          {
-            type: "output",
-            content: "2. Portfolio Website - https://example.com/project2",
-          },
-          {
-            type: "output",
-            content: "3. Task Management App - https://example.com/project3",
-          },
-          {
-            type: "output",
-            content: "4. Social Media Dashboard - https://example.com/project4",
-          },
+          { type: "output", content: "- contact: Envía un mensaje" },
+          { type: "output", content: "- clear: Limpia el terminal" },
+          { type: "output", content: "- [código secreto]: ??????" },
           { type: "output", content: "> " },
         ]);
         break;
@@ -184,8 +139,8 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
       case "contact":
         setMessages((prev) => [
           ...prev.slice(0, -1),
-          { type: "output", content: "Enter your name:" },
-          { type: "output", content: "> " },
+          { type: "output", content: "Introduce tu nombre:" } as Message,
+          { type: "output", content: "> " } as Message,
         ]);
         setContactStep("name");
         break;
@@ -212,7 +167,7 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
           {
             type: "output",
             content:
-              "Welcome to the interactive terminal! Type 'help' to see available commands.",
+              "¡Bienvenido al terminal interactivo! Escribe 'help' para ver los comandos disponibles.",
           },
           { type: "output", content: "> " },
         ]);
@@ -224,7 +179,7 @@ export const useTerminalLogic = (onEasterEgg?: () => void) => {
           ...prev.slice(0, -1),
           {
             type: "error",
-            content: `Command not found: ${command}. Type 'help' for available commands.`,
+            content: `Comando no encontrado: ${command}. Escribe 'help' para ver los comandos disponibles.`,
           },
           { type: "output", content: "> " },
         ]);

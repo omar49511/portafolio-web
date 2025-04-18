@@ -15,8 +15,6 @@ export default function Hero() {
         quality={75}
         sizes="full"
         className="object-cover w-full h-full inset-0"
-        priority
-        loading="eager"
         placeholder="blur"
         blurDataURL="/portada.webp"
         style={{ filter: "blur(0.5px)" }} // Apply a slight blur effect

@@ -1,6 +1,7 @@
 import React from "react";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaCodepen } from "react-icons/fa";
 import { FaXTwitter, FaDribbble, FaBehance } from "react-icons/fa6";
+import FaUIverse from "./ui/FaUIverse";
 
 // SocialLink optimizado con accesibilidad y estructura semántica correcta
 interface SocialLinkProps {
@@ -28,9 +29,9 @@ const SocialLink = React.memo(function SocialLink({ href, icon: Icon, label }: S
 export default function CardRedes() {
   const socialLinks = [
     { href: "https://www.linkedin.com/in/username", icon: FaLinkedinIn, label: "LinkedIn" },
-    { href: "https://www.behance.net/username", icon: FaBehance, label: "Behance" },
+    { href: "https://codepen.io/omar49511", icon: FaCodepen, label: "Codepen" },
     { href: "https://twitter.com/username", icon: FaXTwitter, label: "Twitter" },
-    { href: "https://dribbble.com/username", icon: FaDribbble, label: "Dribbble" },
+    { href: "https://uiverse.io/profile/omar49511", icon: FaUIverse, label: "UIverse" },
   ];
 
   return (

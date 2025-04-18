@@ -175,7 +175,7 @@ export default function ProjectGallery({
         <ProjectDocumentationModal
           project={projects.find((p) => p.id === activeProject)!}
           onClose={() => setActiveProject(null)}
-          themeColor={themeColor || "#000000"} // Default to black if undefined
+          themeColor={themeColor || "#5731E7"} // Default to black if undefined
         />
       )}
     </section>
