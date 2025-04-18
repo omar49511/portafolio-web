@@ -1,5 +1,4 @@
 import React from "react";
-// import Carrousel from "./carrousel";
 import ProjectGallery from "./project-gallery";
 import { projects } from "@/data/proyects";
 import HiddenLetter from "@/components/HiddenLetter"; // Adjust the path as necessary
