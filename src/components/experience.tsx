@@ -1,8 +1,7 @@
 "use client";
 
-
 import React from "react";
-import MusicPlayer from "@/components/music-player";
+import MusicPlayer from "@/components/MusicPlayer/MusicPlayer"; // Ensure this path is correct
 import HiddenLetter from "@/components/HiddenLetter"; // Ensure this path is correct
 
 // Define colorThemes and activeTheme
@@ -12,10 +11,7 @@ const colorThemes = {
 };
 const activeTheme = "light";
 
-
 export default function Experience() {
-
-
   const experiences = [
     {
       rol_experience: "Software Engineer",
@@ -66,13 +62,13 @@ export default function Experience() {
 
       <aside className="w-full md:w-[30%] h-98 rounded-xl flex flex-col gap-4">
         <div className="rounded-md overflow-hidden backdrop-blur-sm">
-          <MusicPlayer themeColor="#5731E7" />
+          <MusicPlayer />
         </div>
         <HiddenLetter
           letter="#"
           themeColor={colorThemes[activeTheme].color}
           className="text-yellow-300 font-bold"
-          style={{ display: "inline-block", maxWidth: "fit-content", }}
+          style={{ display: "inline-block", maxWidth: "fit-content" }}
         />
       </aside>
     </section>
