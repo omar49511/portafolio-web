@@ -16,6 +16,7 @@ const SocialLink = React.memo(function SocialLink({ href, icon: Icon, label }: S
       <a
         href={href}
         target="_blank"
+        aria-label={`Enlace a ${label}`}
         rel="noopener noreferrer"
         className="flex items-center gap-3 bg-[#262626] p-4 rounded-md hover:bg-[#2F2F2F] transition-colors focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-white"
       >
@@ -28,7 +29,7 @@ const SocialLink = React.memo(function SocialLink({ href, icon: Icon, label }: S
 
 export default function CardRedes() {
   const socialLinks = [
-    { href: "https://www.linkedin.com/in/username", icon: FaLinkedinIn, label: "LinkedIn" },
+    { href: "https://www.linkedin.com/in/omar-reyes-zamudio-20866427a/", icon: FaLinkedinIn, label: "LinkedIn" },
     { href: "https://codepen.io/omar49511", icon: FaCodepen, label: "Codepen" },
     { href: "https://twitter.com/username", icon: FaXTwitter, label: "Twitter" },
     { href: "https://uiverse.io/profile/omar49511", icon: FaUIverse, label: "UIverse" },
