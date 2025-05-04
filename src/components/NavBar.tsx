@@ -1,6 +1,5 @@
 "use client";
 import { FaFileAlt, FaTerminal, FaSun } from "react-icons/fa";
-import SecretCodeCollector from "./SecretCodeCollector";
 import { useState, useEffect } from "react";
 
 interface NavBarProps {
@@ -103,7 +102,7 @@ export default function NavBar({
         <nav className="fixed top-0 left-0 right-0 z-50">
             <div className="container mx-auto px-6 py-3 flex justify-center">
                 <div className="flex items-center gap-4 p-2 bg-[#191919] rounded-full">
-                    <IconButton icon={FaFileAlt} label="Ver CV" onClick={() => window.open("/cv.pdf", "_blank")}/>
+                    <IconButton icon={FaFileAlt} label="Ver CV" onClick={() => window.open("./cv/CVOmar_Reyes_Zamudio.pdf", "_blank")} />
                     <IconButton
                         icon={FaTerminal}
                         label="Abrir terminal"
